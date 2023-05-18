@@ -163,7 +163,6 @@ subroutine interpolate_data(x1d, y1d, image, x_interp, y_interp, out, nx, ny, n_
                + (1.0_8-r_x)*r_y        *image(i,j+1) &
                + r_x        *(1.0_8-r_y)*image(i+1,j) &
                + r_x       *r_y         *image(i+1,j+1)
-        write(*,*) i, j, r_x, r_y, out(k)
     end do
 end subroutine
 
