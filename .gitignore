@@ -1,0 +1,5 @@
+*.mod
+*.so
+*.egg-info
+test*
+build
