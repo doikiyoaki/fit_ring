@@ -1,6 +1,5 @@
 *.mod
 *.so
 *.egg-info
-*.fits
 test*
 build
