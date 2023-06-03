@@ -57,7 +57,7 @@ subroutine raytrace_ring( &
     truncation = 4.0
 
     HC_p_KbLambda = h_planck * c_light / k_boltz / wavelength ! calculate often used constant
-    zmax = ring_h * truncation ! upper limit for integration
+    zmax = abs(ring_h) * truncation ! upper limit for integration
     dz = zmax / n_integral
 
     do i = 1, npixx
@@ -76,7 +76,7 @@ subroutine raytrace_ring( &
                 r_integ_min = sqrt(x_integ**2 + y_integ_min**2)
                 r_integ_mid = sqrt(x_integ**2 + y_integ_mid**2)
                 r_integ_max = sqrt(x_integ**2 + y_integ_max**2)
-                dtau = ring_tau0 /(sqrt(2.0 * PI)* ring_h) &                                          ! mutual factor for integration
+                dtau = ring_tau0 /(sqrt(2.0 * PI)* abs(ring_h)) &                                          ! mutual factor for integration
                 *(   exp( -(r_integ_min -ring_r0)**2/(2*ring_w**2) -z_integ_min**2/(2*ring_h**2)) &   ! simpson fitst term
                 +4.0*exp( -(r_integ_mid -ring_r0)**2/(2*ring_w**2) -z_integ_mid**2/(2*ring_h**2)) &   ! simpson midterm
                 +    exp( -(r_integ_max -ring_r0)**2/(2*ring_w**2) -z_integ_max**2/(2*ring_h**2))) *dz/6.0 ! simpson integration for tau

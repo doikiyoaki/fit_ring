@@ -3,3 +3,5 @@
 *.egg-info
 test*
 build
+*copy*
+.DS_Store
